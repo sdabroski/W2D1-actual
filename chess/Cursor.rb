@@ -77,7 +77,7 @@ class Cursor
 
   def handle_key(key)
     case key
-    when :return || :space
+    when :return , :space
       return self.cursor_pos
     when :up
       update_pos(MOVES[:up])
@@ -97,7 +97,7 @@ class Cursor
     row_diff, col_diff = diff
     potential_pos = [self.cursor_pos[0] + row_diff , self.cursor_pos[1] + col_diff]
     
-    if valid_pos?(potential_pos)
+    if board.valid_pos?(potential_pos)
       @cursor_pos = potential_pos
     end
   end
